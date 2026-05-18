@@ -57,11 +57,15 @@ app.use((error, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
-  console.log(`🔐 Auth endpoints: http://localhost:${PORT}/api/auth`);
-  console.log(`💰 Loan endpoints: http://localhost:${PORT}/api/loans`);
-  console.log(`📈 Dashboard endpoints: http://localhost:${PORT}/api/dashboard`);
-  console.log('✅ Micro-lending platform ready!');
-});
+if (process.env.VERCEL !== '1') {
+  app.listen(PORT, () => {
+    console.log(`🚀 Server running on port ${PORT}`);
+    console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+    console.log(`🔐 Auth endpoints: http://localhost:${PORT}/api/auth`);
+    console.log(`💰 Loan endpoints: http://localhost:${PORT}/api/loans`);
+    console.log(`📈 Dashboard endpoints: http://localhost:${PORT}/api/dashboard`);
+    console.log('✅ Micro-lending platform ready!');
+  });
+}
+
+export default app;
