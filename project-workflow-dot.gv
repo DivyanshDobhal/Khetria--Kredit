@@ -1,0 +1,134 @@
+digraph KshetraKredit {
+  // Graph settings
+  rankdir=TB;
+  nodesep=0.8;
+  ranksep=1.0;
+  splines=ortho;
+  node [shape=box, style=filled, fillcolor=lightblue, fontname="Arial", fontsize=12];
+  edge [fontname="Arial", fontsize=10, color="#555555", penwidth=1.2];
+  
+  // Main components
+  subgraph cluster_frontend {
+    label="Frontend";
+    style=filled;
+    color=lightgrey;
+    fontsize=14;
+    margin=16;
+    
+    UI [label="UI Components"];
+    Pages [label="Pages"];
+    Contexts [label="Contexts"];
+    Hooks [label="Hooks"];
+  }
+  
+  subgraph cluster_backend {
+    label="Backend";
+    style=filled;
+    color=lightgrey;
+    fontsize=14;
+    margin=16;
+    
+    API [label="API Layer"];
+    Controllers [label="Controllers"];
+    Middleware [label="Middleware"];
+    Utils [label="Utils"];
+  }
+  
+  subgraph cluster_data {
+    label="Data Storage";
+    style=filled;
+    color=lightgrey;
+    fontsize=14;
+    margin=16;
+    
+    LocalStorage [label="LocalStorage"];
+    AuthData [label="Auth Data"];
+    WalletData [label="Wallet Data"];
+    Settings [label="Settings"];
+  }
+  
+  // Relationships - Frontend internal
+  UI -> Pages [label="Renders", style=solid];
+  Pages -> Contexts [label="Uses", style=dashed];
+  Pages -> Hooks [label="Uses", style=dashed];
+  UI -> Hooks [label="Uses", style=dashed];
+  Contexts -> Pages [label="Provides", style=dashed, constraint=false];
+  Hooks -> UI [label="Enhances", style=dashed, constraint=false];
+  
+  // Frontend to Backend
+  edge [color="#0066CC", style=solid];
+  UI -> API [label="API Calls", weight=2];
+  Pages -> API [label="API Calls", weight=2];
+  API -> UI [label="Responses", dir=back, weight=2];
+  API -> Pages [label="Responses", dir=back, weight=2];
+  
+  // Backend internal
+  edge [color="#555555", style=solid];
+  API -> Controllers [label="Routes", weight=3];
+  Controllers -> Middleware [label="Uses", style=dashed];
+  Controllers -> Utils [label="Uses", style=dashed];
+  
+  // Data storage connections
+  edge [color="#006600", style=solid];
+  Contexts -> LocalStorage [label="Reads/Writes", weight=2];
+  LocalStorage -> AuthData [label="Stores", style=dotted];
+  LocalStorage -> WalletData [label="Stores", style=dotted];
+  LocalStorage -> Settings [label="Stores", style=dotted];
+  
+  // User flows
+  subgraph cluster_user_flows {
+    label="User Flows";
+    style=filled;
+    color="#E6F3FF";
+    fontsize=14;
+    margin=16;
+    
+    Auth [label="Authentication\nFlow"];
+    BorrowerFlow [label="Borrower\nWorkflow"];
+    LenderFlow [label="Lender\nWorkflow"];
+    LanguageFlow [label="Multi-language\nSupport"];
+    TermsFlow [label="Terms & Conditions\nAcceptance"];
+    WalletFlow [label="Wallet\nSystem"];
+    ChatbotFlow [label="Chatbot\nInteraction"];
+  }
+  
+  // Connect user flows to components
+  edge [color="#990000", style=dashed, constraint=false];
+  Auth -> UI [weight=1];
+  Auth -> Contexts [weight=1];
+  BorrowerFlow -> Pages [weight=1];
+  BorrowerFlow -> API [weight=1];
+  LenderFlow -> Pages [weight=1];
+  LenderFlow -> API [weight=1];
+  LanguageFlow -> Contexts [weight=1];
+  TermsFlow -> UI [weight=1];
+  WalletFlow -> Contexts [weight=1];
+  ChatbotFlow -> UI [weight=1];
+  
+  // Authentication flow details
+  subgraph cluster_auth_flow {
+    label="Authentication Flow";
+    style=filled;
+    color="#F0E6FF";
+    fontsize=14;
+    margin=16;
+    
+    Register [label="Registration"];
+    Login [label="Login"];
+    Token [label="JWT Token"];
+    Storage [label="Store Token"];
+    AuthState [label="Update Auth State"];
+    Redirect [label="Redirect to Dashboard"];
+  }
+  
+  edge [color="#555555", style=solid, constraint=true];
+  Register -> Login [style=dotted, color="#999999"];
+  Login -> Token [weight=3];
+  Token -> Storage [weight=3];
+  Storage -> AuthState [weight=3];
+  AuthState -> Redirect [weight=3];
+  
+  // Connect auth flow to main components
+  Register -> Auth [style=invis];
+  Login -> Auth [style=invis];
+}

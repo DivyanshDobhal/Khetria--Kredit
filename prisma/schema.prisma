@@ -1,0 +1,102 @@
+// This is your Prisma schema file
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  BORROWER
+  LENDER
+}
+
+model User {
+  id            String        @id @default(auto()) @map("_id") @db.ObjectId
+  email         String        @unique
+  password      String // Will be hashed
+  name          String
+  role          Role
+  creditScore   Int?          @default(650) // Credit score (300-850)
+  trustScore    Int?          @default(70)  // Trust score (0-100)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  lastLogin     DateTime?     // Last successful login timestamp
+  loginCount    Int           @default(0)   // Total number of successful logins
+  isActive      Boolean       @default(true) // Account status
+  emailVerified Boolean       @default(false) // Email verification status
+
+  // Relationships
+  loanRequests  LoanRequest[] @relation("BorrowerLoans")
+  fundings      Funding[]     @relation("LenderFundings")
+  loginHistory  LoginHistory[] // Track all login attempts
+
+  @@map("users")
+}
+
+model LoanRequest {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  amount        Float
+  purpose       String
+  repaymentTerm Int       // In months
+  status        String    @default("PENDING") // PENDING, FUNDING, FUNDED, REPAID
+  amountFunded  Float     @default(0)
+  createdAt     DateTime  @default(now())
+
+  // Relationships
+  borrower      User      @relation("BorrowerLoans", fields: [borrowerId], references: [id])
+  borrowerId    String    @db.ObjectId
+  fundings      Funding[]
+  repayments    Repayment[]
+
+  @@map("loan_requests")
+}
+
+model Funding {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  amount        Float
+  createdAt     DateTime    @default(now())
+
+  // Relationships
+  lender        User        @relation("LenderFundings", fields: [lenderId], references: [id])
+  lenderId      String      @db.ObjectId
+  loanRequest   LoanRequest @relation(fields: [loanRequestId], references: [id])
+  loanRequestId String      @db.ObjectId
+
+  @@map("fundings")
+}
+
+model Repayment {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  amount        Float
+  dueDate       DateTime
+  status        String      @default("PENDING") // PENDING, PAID
+
+  // Relationships
+  loanRequest   LoanRequest @relation(fields: [loanRequestId], references: [id])
+  loanRequestId String      @db.ObjectId
+
+  @@map("repayments")
+}
+
+// Login History Model - Tracks all login attempts (successful and failed)
+model LoginHistory {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  email       String   // Store email for reference even if user is deleted
+  success     Boolean  // Whether login was successful
+  ipAddress   String?  // IP address of the login attempt
+  userAgent   String?  // Browser/device information
+  failureReason String? // Reason for failed login (wrong password, user not found, etc.)
+  createdAt   DateTime @default(now())
+
+  // Relationships
+  user        User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([email])
+  @@index([createdAt])
+  @@map("login_history")
+}

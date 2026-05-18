@@ -1,0 +1,161 @@
+digraph WebsiteFeatures {
+  // Graph settings
+  rankdir=TB;
+  nodesep=0.8;
+  ranksep=1.0;
+  splines=ortho;
+  node [shape=box, style=filled, fillcolor="#E6F3FF", fontname="Arial", fontsize=12];
+  edge [fontname="Arial", fontsize=10, color="#555555", penwidth=1.2];
+  
+  // Main feature categories
+  subgraph cluster_user_features {
+    label="User Features";
+    style=filled;
+    color=lightgrey;
+    fontsize=14;
+    margin=16;
+    
+    Authentication [label="Authentication\nSystem"];
+    Registration [label="User\nRegistration"];
+    Profiles [label="User\nProfiles"];
+    Dashboard [label="Personalized\nDashboard"];
+  }
+  
+  subgraph cluster_lending_features {
+    label="Lending Features";
+    style=filled;
+    color="#E6F3FF";
+    fontsize=14;
+    margin=16;
+    
+    LoanApplication [label="Loan\nApplication"];
+    LoanMarketplace [label="Loan\nMarketplace"];
+    LoanFunding [label="Loan\nFunding"];
+    Repayments [label="Repayment\nSystem"];
+  }
+  
+  subgraph cluster_accessibility {
+    label="Accessibility Features";
+    style=filled;
+    color="#F0E6FF";
+    fontsize=14;
+    margin=16;
+    
+    MultiLanguage [label="Multi-language\nSupport"];
+    TextToSpeech [label="Text-to-Speech\nCapability"];
+    AudioSettings [label="Audio\nSettings"];
+    ResponsiveDesign [label="Responsive\nDesign"];
+  }
+  
+  subgraph cluster_financial {
+    label="Financial Features";
+    style=filled;
+    color="#E6FFE6";
+    fontsize=14;
+    margin=16;
+    
+    Wallet [label="Digital\nWallet"];
+    UPIPayments [label="UPI\nPayments"];
+    CreditScore [label="Credit Score\nSystem"];
+    TrustScore [label="Trust Score\nSystem"];
+  }
+  
+  subgraph cluster_support {
+    label="Support Features";
+    style=filled;
+    color="#FFE6E6";
+    fontsize=14;
+    margin=16;
+    
+    Chatbot [label="AI\nChatbot"];
+    TermsConditions [label="Terms &\nConditions"];
+    VideoBackground [label="Video\nBackground"];
+    ThemeToggle [label="Theme\nToggle"];
+  }
+  
+  // Connections between features
+  // Authentication connections
+  edge [color="#0066CC", style=solid];
+  Authentication -> Registration [weight=2];
+  Authentication -> Profiles [weight=2];
+  Authentication -> Dashboard [weight=2];
+  
+  // Lending connections
+  edge [color="#006600", style=solid];
+  LoanApplication -> LoanMarketplace [weight=2];
+  LoanMarketplace -> LoanFunding [weight=2];
+  LoanFunding -> Repayments [weight=2];
+  
+  // Cross-category connections
+  edge [color="#990000", style=dashed, constraint=false];
+  Registration -> MultiLanguage;
+  Dashboard -> Wallet;
+  LoanApplication -> CreditScore;
+  LoanFunding -> UPIPayments;
+  Profiles -> TrustScore;
+  Dashboard -> Chatbot;
+  Registration -> TermsConditions;
+  
+  // Accessibility connections
+  edge [color="#9900CC", style=dotted];
+  MultiLanguage -> TextToSpeech [weight=1];
+  TextToSpeech -> AudioSettings [weight=1];
+  MultiLanguage -> ResponsiveDesign [weight=1];
+  
+  // Financial connections
+  edge [color="#006600", style=dotted];
+  Wallet -> UPIPayments [weight=1];
+  CreditScore -> TrustScore [weight=1];
+  
+  // Feature groups
+  subgraph cluster_core_features {
+    label="Core Features";
+    style=dashed;
+    color="#CCCCCC";
+    fontsize=14;
+    
+    CoreFeatures [label="Core Features", shape=ellipse, fillcolor="#FFFFCC"];
+  }
+  
+  subgraph cluster_enhanced_features {
+    label="Enhanced Features";
+    style=dashed;
+    color="#CCCCCC";
+    fontsize=14;
+    
+    EnhancedFeatures [label="Enhanced Features", shape=ellipse, fillcolor="#FFFFCC"];
+  }
+  
+  // Connect feature groups
+  edge [color="#333333", style=dotted, constraint=false];
+  CoreFeatures -> Authentication [dir=none];
+  CoreFeatures -> LoanApplication [dir=none];
+  CoreFeatures -> LoanMarketplace [dir=none];
+  CoreFeatures -> Dashboard [dir=none];
+  CoreFeatures -> Wallet [dir=none];
+  
+  EnhancedFeatures -> MultiLanguage [dir=none];
+  EnhancedFeatures -> TextToSpeech [dir=none];
+  EnhancedFeatures -> Chatbot [dir=none];
+  EnhancedFeatures -> ThemeToggle [dir=none];
+  EnhancedFeatures -> UPIPayments [dir=none];
+  
+  // Legend
+  subgraph cluster_legend {
+    label="Legend";
+    style=filled;
+    color="#EEEEEE";
+    fontsize=12;
+    margin=8;
+    
+    CoreConnection [label="Core Connection", shape=plaintext];
+    EnhancedConnection [label="Enhanced Connection", shape=plaintext];
+    CrossFeatureConnection [label="Cross-Feature Connection", shape=plaintext];
+    
+    // Legend connections
+    edge [len=1.5];
+    CoreConnection -> EnhancedConnection [style=solid, color="#0066CC", label="Solid Line"];
+    EnhancedConnection -> CrossFeatureConnection [style=dashed, color="#990000", label="Dashed Line"];
+    CrossFeatureConnection -> CoreConnection [style=dotted, color="#006600", label="Dotted Line"];
+  }
+}

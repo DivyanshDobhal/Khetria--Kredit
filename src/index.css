@@ -1,0 +1,338 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* P2P Lending Platform Design System - Slice.it Inspired
+All colors MUST be HSL. Vibrant fintech aesthetic with gradients and animations.
+*/
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 100%;
+    --foreground: 230 15% 15%;
+
+    /* Card system */
+    --card: 0 0% 100%;
+    --card-foreground: 230 15% 15%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 15% 15%;
+
+    /* Primary - Yellow Brick */
+    --primary: 45 100% 50%;
+    --primary-foreground: 230 15% 15%;
+
+    /* Secondary - Deep Orange */
+    --secondary: 30 100% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted */
+    --muted: 45 15% 96%;
+    --muted-foreground: 30 10% 45%;
+
+    /* Accent - Golden Yellow */
+    --accent: 50 100% 60%;
+    --accent-foreground: 230 15% 15%;
+
+    /* Trust score colors - Yellow Brick theme */
+    --trust-low: 0 100% 65%;
+    --trust-medium: 40 100% 55%;
+    --trust-high: 120 100% 40%;
+
+    /* Success/Error */
+    --success: 120 100% 40%;
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 45 25% 90%;
+    --input: 45 25% 90%;
+    --ring: 45 100% 50%;
+
+    /* Gradients - Yellow Brick theme */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 50%), hsl(35 100% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(30 100% 40%), hsl(20 100% 50%));
+    --gradient-success: linear-gradient(135deg, hsl(120 100% 40%), hsl(45 100% 50%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(45 15% 98%));
+
+    /* Animations and transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(45 100% 35% / 0.1);
+    --shadow-elevated: 0 8px 40px -8px hsl(45 100% 35% / 0.2);
+    --shadow-glow: 0 0 30px hsl(45 100% 50% / 0.3);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode adaptations */
+    --background: 230 25% 8%;
+    --foreground: 220 15% 92%;
+
+    --card: 230 20% 12%;
+    --card-foreground: 220 15% 92%;
+
+    --popover: 230 20% 12%;
+    --popover-foreground: 220 15% 92%;
+
+    /* Keep vibrant colors in dark mode - Yellow Brick theme */
+    --primary: 45 100% 55%;
+    --primary-foreground: 230 25% 8%;
+
+    --secondary: 30 100% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 45 15% 18%;
+    --muted-foreground: 30 10% 60%;
+
+    --accent: 50 100% 65%;
+    --accent-foreground: 230 25% 8%;
+
+    --border: 45 15% 20%;
+    --input: 45 15% 20%;
+    --ring: 45 100% 55%;
+
+    /* Adjusted gradients for dark mode - Yellow Brick theme */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 35%), hsl(35 100% 45%));
+    --gradient-secondary: linear-gradient(135deg, hsl(30 100% 30%), hsl(20 100% 40%));
+    --gradient-success: linear-gradient(135deg, hsl(120 100% 30%), hsl(45 100% 40%));
+    --gradient-card: linear-gradient(135deg, hsl(230 20% 12%), hsl(45 15% 15%));
+    
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 40px -8px hsl(0 0% 0% / 0.4);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100vh;
+    position: relative;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  /* Abstract flowing dots background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 60% 60%, rgba(255, 219, 120, 0.6) 0%, transparent 60%),
+      radial-gradient(circle at 10% 10%, rgba(198, 119, 255, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 90% 90%, rgba(119, 255, 198, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 50% 20%, rgba(255, 200, 100, 0.3) 0%, transparent 40%),
+      radial-gradient(circle at 30% 90%, rgba(100, 200, 255, 0.3) 0%, transparent 40%);
+    background-size: 400px 400px, 300px 300px, 500px 500px, 350px 350px, 250px 250px, 450px 450px, 200px 200px, 180px 180px;
+    background-position: 0% 0%, 100% 0%, 0% 100%, 100% 100%, 50% 0%, 50% 100%, 25% 25%, 75% 75%;
+    animation: floatingDots 20s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  /* Light mode background */
+  .light body {
+    background: var(--gradient-primary);
+  }
+
+  .light body::before {
+    opacity: 0.8;
+  }
+
+  /* Dark mode background */
+  .dark body {
+    background: linear-gradient(135deg, hsl(230 25% 8%), hsl(230 20% 12%));
+  }
+
+  .dark body::before {
+    opacity: 0.7;
+  }
+
+  /* Additional floating elements */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      radial-gradient(circle at 15% 15%, rgba(255, 100, 100, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 85% 85%, rgba(100, 255, 100, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 30% 70%, rgba(100, 100, 255, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 70% 30%, rgba(255, 255, 100, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(255, 100, 255, 0.2) 0%, transparent 40%);
+    background-size: 200px 200px, 150px 150px, 180px 180px, 120px 120px, 100px 100px;
+    background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0%, 50% 50%;
+    animation: floatingDots 25s ease-in-out infinite reverse;
+    z-index: -1;
+    opacity: 0.6;
+  }
+
+  /* Floating animation for dots */
+  @keyframes floatingDots {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translateY(-20px) rotate(1deg) scale(1.05);
+    }
+    50% {
+      transform: translateY(-10px) rotate(-1deg) scale(0.95);
+    }
+    75% {
+      transform: translateY(-30px) rotate(0.5deg) scale(1.02);
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Gradient utilities */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-success {
+    background: var(--gradient-success);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  /* Trust score badge styles */
+  .trust-low {
+    background: hsl(var(--trust-low));
+    color: white;
+  }
+
+  .trust-medium {
+    background: hsl(var(--trust-medium));
+    color: white;
+  }
+
+  .trust-high {
+    background: hsl(var(--trust-high));
+    color: white;
+  }
+
+  /* Progress bar animations */
+  .progress-animate {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px hsl(var(--primary) / 0.6);
+  }
+}

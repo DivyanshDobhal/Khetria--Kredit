@@ -1,0 +1,252 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "accept": "Accept",
+    "search": "Search",
+    "download": "Download"
+  },
+  "navigation": {
+    "home": "Home",
+    "marketplace": "Marketplace",
+    "investments": "Investments",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "profile": "Profile",
+    "termsAndConditions": "Terms & Conditions",
+    "privacyPolicy": "Privacy Policy",
+    "help": "Help"
+  },
+  "landing": {
+    "hero": {
+      "title": "SLICE THE WAY YOU",
+      "titleHighlight": "LEND",
+      "subtitle": "THE FINE-PRINT ENDS TODAY",
+      "subtitle2": "TAKE CONTROL OF YOUR MONEY AND TIME",
+      "needLoan": "Need a Loan?",
+      "wantInvest": "Want to Invest?",
+      "connectionsMade": "connections made so far"
+    },
+    "stats": {
+      "loansFunded": "Loans Funded",
+      "activeBorrowers": "Active Borrowers",
+      "defaultRate": "Default Rate",
+      "avgFundingTime": "Avg. Funding Time"
+    },
+    "features": {
+      "title": "Why Choose Kshetra Kredit?",
+      "subtitle": "Experience the future of peer-to-peer lending with our innovative platform",
+      "competitiveReturns": {
+        "title": "Competitive Returns",
+        "description": "Earn up to 8% annual returns by funding carefully vetted loans in Indian Rupees"
+      },
+      "trustBased": {
+        "title": "Trust-Based Lending",
+        "description": "Advanced trust scoring system ensures reliable borrower matching"
+      },
+      "fastFunding": {
+        "title": "Fast Funding",
+        "description": "Get your loan funded in hours, not weeks"
+      },
+      "communityDriven": {
+        "title": "Community-Driven",
+        "description": "Connect directly with real people in your community"
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "borrowers": {
+        "title": "For Borrowers",
+        "steps": [
+          "Create your loan request with purpose and terms",
+          "Get matched with potential lenders",
+          "Receive funding within hours",
+          "Make simple monthly repayments"
+        ],
+        "cta": "Start Borrowing"
+      },
+      "lenders": {
+        "title": "For Lenders",
+        "steps": [
+          "Browse verified loan requests",
+          "Review borrower trust scores",
+          "Choose loans to fund",
+          "Earn returns as loans are repaid"
+        ],
+        "cta": "Start Investing"
+      }
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Join thousands of users who have already transformed their financial future",
+      "button": "Get Started Today"
+    },
+    "images": {
+      "heroBackground": "Digital financial inclusion in rural India - Young woman helping older man with financial card transaction",
+      "realWorldImpact": "Digital financial inclusion in rural India - Young woman helping older man with financial card transaction",
+      "impactCaption": "Bridging the digital divide in rural communities"
+    }
+  },
+  "terms": {
+    "title": "Terms & Conditions",
+    "downloadPdf": "Download PDF",
+    "searchPlaceholder": "Search in Terms & Conditions...",
+    "sections": {
+      "general": "General Platform Usage",
+      "borrowers": "Borrowers",
+      "lenders": "Lenders",
+      "security": "Security & Compliance",
+      "grievance": "Grievance & Dispute Resolution",
+      "amendments": "Amendments",
+      "additional": "Additional Terms: Consequences of Non-Repayment"
+    },
+    "content": {
+      "general": "Both lenders and borrowers must complete platform KYC, verify all details, and agree to RBI NBFC-P2P rules before transacting. Participation is strictly limited to Indian residents. You agree to the privacy policy and consent to the use, review, and sharing of your credit and identity data for regulatory, risk, and matching purposes.",
+      "borrowers": {
+        "eligibility": "Eligibility & Loan Application",
+        "eligibilityContent": "Must be 18+, Indian citizen, and provide truthful financial data (income, employment, alternate data as requested). Maximum borrowable amount is capped at INR 10 lakh across all P2P platforms as per RBI guidelines.",
+        "assessment": "Credit Assessment & Acceptance",
+        "assessmentContent": "By applying, you consent to credit-checks using bureau scores and alternative-data feeds (utility bills, GST, banking data). Loan offers are subject to approval, and final rates are determined by real-time lender bids plus credit score and risk ranking. You should review loan tenure, rate, repayment schedule, and platform fees before accepting any offer.",
+        "repayment": "Repayment Obligations",
+        "repaymentContent": "Borrowers must repay principal and interest as per the agreed schedule (weekly, fortnightly, or monthly EMIs). Delays beyond 90 days (default) will trigger formal collection efforts, legal notices, credit bureau reporting, and may restrict future access. Early repayment is permitted with no penalty, unless stated otherwise in specific loan terms.",
+        "data": "Data and Communication",
+        "dataContent": "It is your responsibility to keep contact, banking, and profile information up to date at all times. Platform will notify you in case of any changes to terms, disbursement schedule, or fees."
+      },
+      "lenders": {
+        "limits": "Limits & Diversification",
+        "limitsContent": "Maximum total lending across all P2P platforms is capped at INR 50 lakh; per borrower exposure cannot exceed INR 50,000. You are encouraged to diversify across multiple loans to reduce risk, facilitated by auto-invest and order book matching features.",
+        "funds": "Fund Handling & Escrow",
+        "fundsContent": "All funds are held in bank escrow accounts managed by approved trustees; platform never directly handles your cash. You will receive repayments, principal, and interest according to borrower schedule and escrow settlement, generally on a T+1 basis.",
+        "default": "Default & Recovery",
+        "defaultContent": "No credit guarantees or default loss protections are provided by the platform, in compliance with RBI directions. On default, collection agencies or legal options may be activated. Recovery is not guaranteed and the risk is fully borne by the lender.",
+        "disclosures": "Disclosures and Data",
+        "disclosuresContent": "You will receive full information about potential borrowers (credit score, loan purpose, terms) prior to lending. All platform fees, rates, and default statistics are transparently published and updated quarterly.",
+        "reporting": "Reporting & Records",
+        "reportingContent": "Transaction records, bid history, and communications will be retained for at least eight years for audit and regulatory review."
+      },
+      "security": "The platform operates under an NBFC-P2P license with mandatory grievance redressal and RBI reporting. All lending and borrowing activity is restricted to domestic, non-commercial, and personal use, except as permitted by platform policy. AML, KYC, and fraud checks are strictly enforced.",
+      "grievance": "All users have access to a formal grievance redressal system for complaints with resolution within 30 days. Disputes will be governed under the jurisdiction of Indian courts with recourse to regulatory escalation where relevant.",
+      "amendments": "The platform reserves the right to update these terms in line with RBI policies, industry laws, and operational requirements. Users will be notified of significant changes via email and in-app notifications.",
+      "additional": "Failure to repay loans may result in credit score damage, legal action, and permanent platform exclusion. The platform may engage third-party collection agencies for defaulted loans. Borrowers experiencing financial hardship should contact customer support immediately to discuss restructuring options."
+    },
+    "modal": {
+      "title": "Terms & Conditions",
+      "description": "Please read and accept our Terms & Conditions to continue",
+      "acceptCheckbox": "I have read and agree to the Terms & Conditions.",
+      "acceptButton": "Accept",
+      "cancelButton": "Cancel"
+    }
+  },
+  
+  "auth": {
+    "login": {
+      "title": "Welcome Back",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Get started with Kshetra Kredit",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "role": "I want to",
+      "roleBorrower": "Borrow money",
+      "roleLender": "Invest money",
+      "agreeTerms": "I agree to the Terms of Service and Privacy Policy",
+      "createAccount": "Create Account",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back",
+    "overview": "Overview",
+    "activeLoans": "Active Loans",
+    "totalInvested": "Total Invested",
+    "monthlyReturns": "Monthly Returns",
+    "trustScore": "Trust Score",
+    "creditScore": "Credit Score",
+    "creditRating": "Credit Rating",
+    "excellent": "Excellent",
+    "good": "Good",
+    "fair": "Fair",
+    "poor": "Poor"
+  },
+  "marketplace": {
+    "title": "Investment Opportunities",
+    "subtitle": "Browse and fund loan requests from verified borrowers",
+    "filterBy": "Filter by",
+    "amount": "Amount",
+    "term": "Term",
+    "trustScore": "Trust Score",
+    "purpose": "Purpose",
+    "fundLoan": "Fund This Loan",
+    "viewDetails": "View Details"
+  },
+  "loan": {
+    "amount": "Loan Amount",
+    "purpose": "Purpose",
+    "term": "Repayment Term",
+    "monthlyPayment": "Monthly Payment",
+    "interestRate": "Interest Rate",
+    "trustScore": "Trust Score",
+    "creditScore": "Credit Score",
+    "borrower": "Borrower",
+    "lender": "Lender",
+    "created": "Created",
+    "funded": "Funded",
+    "remaining": "Remaining",
+    "minAmount": "Minimum Amount",
+    "maxAmount": "Maximum Amount"
+  },
+  "fundModal": {
+    "title": "Fund This Loan",
+    "subtitle": "Support {{name}}'s \"{{purpose}}\" loan request",
+    "investmentAmount": "Investment Amount",
+    "investmentSummary": "Investment Summary",
+    "investment": "Investment",
+    "estimatedReturns": "Est. Returns",
+    "totalExpectedReturn": "Total Expected Return",
+    "securityNotice": "Security & Risk",
+    "securityText": "All investments carry risk. Past performance doesn't guarantee future results. Diversify your investments for better risk management.",
+    "fund": "Fund {{amount}}",
+    "processing": "Processing..."
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "placeholder": "Ask me anything about loans, investments, or how to use the platform...",
+    "send": "Send",
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "welcome": "Hi! I'm your AI assistant. How can I help you today?",
+    "suggestions": {
+      "createLoan": "How do I create a loan request?",
+      "checkSchedule": "How do I check my repayment schedule?",
+      "viewStats": "How do I view my loan statistics?",
+      "investMoney": "How do I invest money in loans?"
+    }
+  }
+}

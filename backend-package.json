@@ -1,0 +1,43 @@
+{
+  "name": "micro-lending-platform",
+  "version": "1.0.0",
+  "description": "A peer-to-peer micro-lending platform with Prisma and MongoDB",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:seed": "node prisma/seed.js",
+    "prisma:studio": "prisma studio",
+    "test": "jest"
+  },
+  "keywords": [
+    "fintech",
+    "micro-lending",
+    "p2p",
+    "prisma",
+    "mongodb"
+  ],
+  "author": "Your Team",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@prisma/client": "^5.7.1",
+    "axios": "^1.11.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^5.7.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  }
+}
