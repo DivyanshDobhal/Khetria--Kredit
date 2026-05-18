@@ -5,3 +5,4 @@ dist/
 *.log 
 public/Untitled video - Made with Clipchamp (1)_2.mp4
 .vercel/
+.vercel

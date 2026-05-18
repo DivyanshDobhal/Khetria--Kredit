@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.env.local
+.DS_Store
+src/.DS_Store
+*.log
+public/Untitled video - Made with Clipchamp (1)_2.mp4
