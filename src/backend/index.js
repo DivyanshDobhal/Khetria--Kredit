@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import { PrismaClient } from '@prisma/client';
 
 // Load environment variables
 dotenv.config();
@@ -12,6 +13,7 @@ import dashboardRoutes from './routes/dashboardRoutes.js';
 import { i18nMiddleware } from './utils/i18n.js';
 
 const app = express();
+const prisma = new PrismaClient();
 
 // Middleware
 app.use(cors());
@@ -30,12 +32,24 @@ app.use('/api/loans', loanRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
-  res.json({ 
-    status: 'OK', 
-    message: 'Micro-lending platform API is running',
-    timestamp: new Date().toISOString()
-  });
+app.get('/api/health', async (req, res) => {
+  try {
+    await prisma.$runCommandRaw({ ping: 1 });
+    res.json({
+      status: 'OK',
+      database: 'connected',
+      message: 'Micro-lending platform API is running',
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    console.error('Database health check failed:', error.code || error.name);
+    res.status(503).json({
+      status: 'ERROR',
+      database: 'disconnected',
+      message: 'Micro-lending platform API is running, but the database is unavailable',
+      timestamp: new Date().toISOString()
+    });
+  }
 });
 
 // 404 handler
