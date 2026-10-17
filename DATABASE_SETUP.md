@@ -57,7 +57,7 @@ The `login_history` collection tracks all login attempts with:
 The following environment variables have been configured:
 
 ```env
-DATABASE_URL="mongodb+srv://<username>:<password>@<cluster-url>/kshetraKredit?retryWrites=true&w=majority"
+DATABASE_URL="mongodb+srv://divyanshdobhal64_db_user:HEKPDIx1NnHlynPo@khetria-kredit.udejf21.mongodb.net/"
 JWT_SECRET="change_this_to_a_strong_random_value"
 JWT_EXPIRES_IN="7d"
 PORT=5000
