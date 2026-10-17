@@ -1,8 +1,6 @@
-import { PrismaClient } from '@prisma/client';
 import { body, validationResult } from 'express-validator';
+import { prisma } from '../utils/prisma.js';
 import { getMessage } from '../utils/i18n.js';
-
-const prisma = new PrismaClient();
 
 // Create a new loan request
 const createLoanRequest = async (req, res) => {

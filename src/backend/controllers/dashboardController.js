@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../utils/prisma.js';
 import { getMessage } from '../utils/i18n.js';
-
-const prisma = new PrismaClient();
 
 // Get borrower's loans
 const getMyLoans = async (req, res) => {

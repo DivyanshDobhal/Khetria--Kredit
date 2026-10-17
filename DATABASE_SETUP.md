@@ -57,10 +57,10 @@ The `login_history` collection tracks all login attempts with:
 The following environment variables have been configured:
 
 ```env
-DATABASE_URL="mongodb+srv://divyanshdobhal64_db_user:HEKPDIx1NnHlynPo@khetria-kredit.udejf21.mongodb.net/"
+DATABASE_URL="mongodb+srv://<username>:<password>@khetria-kredit.udejf21.mongodb.net/kshetraKredit?retryWrites=true&w=majority"
 JWT_SECRET="change_this_to_a_strong_random_value"
 JWT_EXPIRES_IN="7d"
-PORT=5000
+PORT=5001
 NODE_ENV=development
 ```
 
@@ -199,7 +199,7 @@ db.login_history.find({ email: "user@example.com" })
 
 ## 🔗 Database Connection
 
-**MongoDB Atlas Cluster:** `cluster0.uahidqc.mongodb.net`  
+**MongoDB Atlas Cluster:** `khetria-kredit.udejf21.mongodb.net`  
 **Database:** `kshetraKredit`  
 **Status:** ✅ Connected and configured
 

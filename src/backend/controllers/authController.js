@@ -1,10 +1,8 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { PrismaClient } from '@prisma/client';
 import { body, validationResult } from 'express-validator';
+import { prisma } from '../utils/prisma.js';
 import { getMessage } from '../utils/i18n.js';
-
-const prisma = new PrismaClient();
 
 // Register a new user
 const register = async (req, res) => {
