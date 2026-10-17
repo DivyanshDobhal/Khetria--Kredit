@@ -123,7 +123,7 @@ The frontend is designed to integrate with a Node.js + Express + Prisma backend:
 ### Environment Variables
 Create a `.env` file:
 ```env
-VITE_API_BASE_URL=http://localhost:3000/api
+VITE_API_BASE_URL=http://localhost:5001/api
 ```
 
 ## 🎮 Demo Mode
